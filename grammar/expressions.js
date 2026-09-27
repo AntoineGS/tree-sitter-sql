@@ -57,7 +57,7 @@ export default {
       field('name', $.identifier),
     ),
 
-  parameter: $ => /\?|(\$[0-9]+)/,
+  parameter: $ => choice(/\?|(\$[0-9]+)/, seq(':', $.identifier)),
 
   case: $ => seq(
     $.keyword_case,
